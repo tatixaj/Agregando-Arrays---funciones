@@ -9,7 +9,8 @@ const totalPrecio = [];
 let user = "tati";
 let pass = "1234";
 
-// Variables de proceso:
+
+// Variables de proceso:....
 let productoFiltrado;
 let productoElegido;
 let productoCarrito;
