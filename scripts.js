@@ -1,4 +1,4 @@
-// variables:
+// variables
 
 // Arrays :
 const productos = [];
