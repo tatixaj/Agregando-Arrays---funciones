@@ -15,10 +15,11 @@ let productoFiltrado;
 let productoElegido;
 let productoCarrito;
 let precioProducto;
-let Unidad;
+let unidad;
 let totalPrecioUnidades = 0;
 let userIngresado;
 let passIngresado;
+let pago;
 
 // Constructor de objetos
 class producto {
@@ -43,8 +44,6 @@ let pashminas = new producto (1000, "Pashminas", 1500, "1000");
 // Objetos pusheados al Array de productos
 productos.push (anillos, gargantillas, pulseras, aros, carteras, pashminas);
 console.log(productos);
-
-
 
 
 // Login - acceso
@@ -119,14 +118,14 @@ function productoIngresado () {
     productoFiltrado = productos.find (item => item.nombre === productoElegido);
     console.log(productoFiltrado);
 
-    Unidad = prompt("ingrese cuantas unidades desea");
-    totalPrecioUnidades = productoFiltrado.precio * Unidad;
+    unidad = prompt("ingrese cuantas unidades desea");
+    totalPrecioUnidades = productoFiltrado.precio * unidad;
     console.log(totalPrecioUnidades);
     
 
     alert(`El producto seleccionado es ${productoFiltrado.nombre} 
     El precio por unidad es $${productoFiltrado.precio} 
-    Usted ha solicitado ${Unidad} item/s.
+    Usted ha solicitado ${unidad} item/s.
     El total es de $${totalPrecioUnidades}`);
 
     carrito.push(productoFiltrado); //Array carrito de compras
@@ -139,9 +138,15 @@ function productoIngresado () {
     pedirProducto ();
 }
 
+
 function sumarCarrito () {
     precioProducto = totalPrecio.reduce((total, producto) => total + producto, 0)
     console.log(precioProducto);
     alert(`El costo total de su compra es de $${precioProducto}`)
+    let pago = parseInt (prompt ("¿Con cuánto va a pagar?"))
+        if (pago >= precioProducto){
+            alert("Su vuelto es $" + (pago - precioProducto));
+        }else
+            alert("No te alcanza")
+    
 }
-
